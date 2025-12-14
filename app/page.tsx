@@ -7,6 +7,10 @@
 
   // EXPORTS start ⬇️
     export default function Page() {
-      return <HomePage />;
+      return (
+        <>
+          <HomePage />
+        </>
+      );
     }
   // EXPORTS end ⬆️
