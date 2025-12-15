@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased`}>
+      <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
         <Header />
 
         <main>

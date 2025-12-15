@@ -1,25 +1,50 @@
 // components/layout/Header/navbar/BurgerButton.tsx
 
 type BurgerButtonProps = {
-    onClick: () => void;
+  open: boolean;
+  onToggle: () => void;
 };
 
-export function BurgerButton({ onClick }: BurgerButtonProps) {
+export function BurgerButton({ open, onToggle }: BurgerButtonProps) {
     return (
         <button
-            onClick={onClick}
-            aria-label="Open menu"
-            className="
-                relative flex h-10 w-10 items-center justify-center
-                rounded-md hover:bg-muted hover:border-none transition
-                focus:outline-none focus:ring-2 focus:ring-ring
-            "
+        onClick={onToggle}
+        aria-label={open ? "Close menu" : "Open menu"}
+        className="
+            relative flex h-10 w-10 items-center justify-center
+            focus:outline-none gap-22 cursor-pointer
+        "
         >
-            <span className="sr-only">Open menu</span>
+        <span className="sr-only">
+            {open ? "Close menu" : "Open menu"}
+        </span>
 
-            <span className="absolute h-0.5 w-5 bg-current" />
-            <span className="absolute h-0.5 w-5 bg-current translate-y-1.5" />
-            <span className="absolute h-0.5 w-5 bg-current -translate-y-1.5" />
+        {/* Top line */}
+        <span
+            className={`
+            absolute h-[1.5px] w-10 bg-current
+            transition-all duration-2500 ease-out
+            ${open ? "rotate-45" : "-translate-y-2"}
+            `}
+        />
+
+        {/* Middle line */}
+        <span
+            className={`
+            absolute h-[1.5px] w-10 bg-current
+            transition-all duration-0 ease-out
+            ${open ? "opacity-0" : "opacity-100"}
+            `}
+        />
+
+        {/* Bottom line */}
+        <span
+            className={`
+            absolute h-[1.5px] w-10 bg-current
+            transition-all duration-2500 ease-out
+            ${open ? "-rotate-45" : "translate-y-2"}
+            `}
+        />
         </button>
     );
 }

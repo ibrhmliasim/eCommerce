@@ -9,7 +9,7 @@ export function NavItem({ href, label }: NavItemProps) {
     return (
         <Link
             href={href}
-            className="text-sm font-medium text-foreground hover:text-muted-foreground"
+            className="flext items-center text-sm text-foreground"
         >
             {label}
         </Link>

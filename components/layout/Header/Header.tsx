@@ -5,7 +5,7 @@ import { NavBar } from "./NavBar/NavBar";
 // EXPORT start
     export function Header() {
     return (
-        <header className="container mx-auto py-10">
+        <header className="container mx-auto pt-8 px-10">
             <NavBar />
         </header>
     );
