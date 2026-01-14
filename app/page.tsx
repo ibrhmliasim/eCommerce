@@ -1,4 +1,4 @@
-  // *** Our e-commerce/components/pages/HomePage.tsx will be here as *Main Page* ***
+  // *** Our e-commerce/components/pages/ will be here as our main pages in website which are called by layout.tsx as {children} ***
 
   // IMPORTS start ⬇️
     import { HomePage } from '@/components/pages/HomePage';

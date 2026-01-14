@@ -1,3 +1,5 @@
+// /Users/asimibrahimli/e-commerce/components/layout/Header/NavBar/SearchInput.tsx
+
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -8,6 +10,7 @@ export function SearchInput() {
         <div
         onClick={() => router.push("/search")}
         className="
+        md:text-sm
         hidden md:flex
         items-center gap-2
         cursor-pointer
@@ -22,9 +25,9 @@ export function SearchInput() {
         placeholder="SEARCH"
         readOnly
         className="
-            w-40
+            w-20 lg:w-40
             bg-transparent
-            text-sm
+            text-xs
             tracking-wide
             placeholder:text-black/60
             focus:outline-none

@@ -1,17 +1,17 @@
+// /Users/asimibrahimli/e-commerce/components/layout/Header/NavBar/SideMenu.tsx
+
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Search, ShoppingBag } from "lucide-react";
-
 
 import { BurgerButton } from "./BurgerButton";
 import { PrimaryCatalog } from "./PrimaryCatalog";
 
 type SideMenuProps = {
-  open: boolean;
-  onToggle: () => void;
-  onClose: () => void;
+    open: boolean;
+    onToggle: () => void;
+    onClose: () => void;
 };
 
 export function SideMenu({ open, onToggle, onClose }: SideMenuProps) {
@@ -22,8 +22,7 @@ export function SideMenu({ open, onToggle, onClose }: SideMenuProps) {
                 onClick={onClose}
                 className={`
                 hidden md:block absolute inset-0
-                bg-black/40 backdrop-blur-none
-                transition-opacity duration-900
+                transition-opacity duration-100
                 ${open ? "opacity-90 pointer-events-auto" : "opacity-0"}
                 `}
             />
@@ -31,30 +30,19 @@ export function SideMenu({ open, onToggle, onClose }: SideMenuProps) {
             {/* Side Menu */}
             <aside
                 className={`
-                absolute left-0 top-0 h-full bg-white
-                transition-transform duration-900 ease-out
-                pointer-events-auto
-                w-full md:w-3/4 lg:w-1/2
+                absolute left-0 md:top-40 h-full bg-white
+                transition-transform duration-1000 ease-out
+                pointer-events-auto w-full md:w-3/4 lg:w-1/2
                 ${open ? "translate-x-0" : "-translate-x-full"}
                 `}
             >
                 {/* Header */}
-                <div className="flex items-center justify-between px-12 md:px-11 lg:px-15 pt-8">
-                    {/* Desktop: Burger X + Logo */}
-                    <div className="hidden md:flex items-center justify-start gap-12 ">
-                        <BurgerButton open={open} onToggle={onToggle} />
+                <div className="flex md:hidden items-center justify-between px-3 pt-10">
+                    {/* Desktop: Burger X + Logo will be our navbar and navbar will open or close */}
 
-                        <Image
-                        src="/logo/logo.png"
-                        alt="PLUSH"
-                        width={220}
-                        height={120}
-                        priority
-                        />
-                    </div>
 
-                    {/* Mobile: Burger X */}
-                    <div className="flex md:hidden items-center justify-between w-full pt-4">
+                    {/* Mobile: Burger X + NavItems */}
+                    <div className="flex md:hidden items-center justify-between w-full">
                         {/* BURGER BUTTON */}
                         <BurgerButton open={open} onToggle={onToggle} />
 
@@ -73,7 +61,7 @@ export function SideMenu({ open, onToggle, onClose }: SideMenuProps) {
                 </div>
 
                 {/* Catalog */}
-                <nav className="px-8 md:px-12 lg:px-16">
+                <nav className="px-3 md:px-12 lg:px-38">
                     <PrimaryCatalog />
                 </nav>
             </aside>

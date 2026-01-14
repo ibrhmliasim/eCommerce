@@ -1,7 +1,7 @@
 type SecondaryCatalogProps = {
-  items: readonly string[];
-  isOpen: boolean;
-  onToggle?: () => void;
+    items: readonly string[];
+    isOpen: boolean;
+    onToggle?: () => void;
 };
 
 export function SecondaryCatalog({ items, isOpen, onToggle }: SecondaryCatalogProps) {
@@ -20,7 +20,8 @@ export function SecondaryCatalog({ items, isOpen, onToggle }: SecondaryCatalogPr
                 className="
                     text-sm font-light tracking-wide
                     opacity-70 hover:opacity-100
-                    transition-opacity duration-200 text-left cursor-pointer
+                    transition-transform hover:translate-x-1.5 ease-out duration-200
+                    text-left cursor-pointer
                 "
                 >
                 {item}

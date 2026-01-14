@@ -1,4 +1,7 @@
+// /Users/asimibrahimli/e-commerce/app/layout.tsx
+
 import { Header } from "@/components/layout/Header/Header";
+import { Footer } from "@/components/layout/Footer";
 
 import type { Metadata } from "next";
 
@@ -30,10 +33,12 @@ export default function RootLayout({
       <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
         <Header />
 
+        {/* app/page.tsx */}
         <main>
           {children}
         </main>
 
+        <Footer />
       </body>
     </html>
   );

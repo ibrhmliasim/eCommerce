@@ -9,7 +9,7 @@
 
     import Image from "next/image";
     import Link from "next/link";
-    import { Search, ShoppingBag, User } from "lucide-react";
+    import { Search, ShoppingBag, User, HelpCircle } from "lucide-react";
 
     import { NavItem } from "./NavItem";
     import { BurgerButton } from "./BurgerButton";
@@ -36,12 +36,12 @@
                     />
 
                     {/* LOGO */}
-                    <Link href="/" className="flex ">
+                    <Link href="/" className="flex pl-2 w-[150px] md:w-[180px] h-auto text-black">
                         <Image
-                            src="/logo/logo.png"
+                            src="/logo/logo1.svg"
                             alt="PLUSH"
                             width={320}
-                            height={150}
+                            height={80}
                             priority
                         />
                     </Link>
@@ -49,7 +49,7 @@
                     {/* NAVIGATION SECTION */}
                     <div className="ml-auto flex items-center justify-between gap-6">
                         {/* DESKTOP NAV */}
-                        <nav className="hidden md:flex gap-6">
+                        <nav className="hidden lg:flex md:text-xs gap-7">
                             <SearchInput />
                             <NavItem href="/login" label="LOG IN" />
                             <NavItem href="/help" label="HELP" />
@@ -57,13 +57,17 @@
                         </nav>
 
                         {/* MOBILE ICONS */}
-                        <nav className="flex md:hidden items-center gap-4">
+                        <nav className="flex lg:hidden items-center gap-4">
                             <Link href="/search" aria-label="Search">
                                 <Search size={24} strokeWidth={1} />
                             </Link>
 
                             <Link href="/login" aria-label="Account">
                                 <User size={24} strokeWidth={1} />
+                            </Link>
+
+                            <Link href="/help" aria-label="Help">
+                                <HelpCircle size={24} strokeWidth={1} />
                             </Link>
 
                             <Link href="/cart" aria-label="Shopping bag">

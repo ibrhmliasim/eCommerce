@@ -70,7 +70,7 @@ export const CATALOG = {
 
   "PLUSH HOME": [
     "VIEW ALL",
-    "NEW IN",
+    "THE NEW",
     "GIFTS",
     "BEDDING",
     "BATHROOM",
@@ -80,9 +80,12 @@ export const CATALOG = {
     "LIVING ROOM",
     "KITCHENWARE",
     "CANDLES & DIFFUSERS",
+    "STORAGE & ORGANIZATION",
   ],
 
   "50TH ANNIVERSARY": [
+    "VIEW ALL",
+    "THE NEW",
     "LIMITED EDITION",
     "ARCHIVE REPLICA",
     "ART TOYS",
@@ -93,7 +96,13 @@ export const CATALOG = {
 
   "PLUSH BEAUTY": [
     "VIEW ALL",
+    "THE NEW",
+    "GIFTS",
+    "BEST SELLERS",
     "SKINCARE",
+    "BODYCARE",
+    "BATH & SHOWER",
+    "TOOLS & ACCESSORIES",
     "MAKEUP",
     "FRAGRANCE",
     "HAIRCARE",
@@ -107,6 +116,9 @@ export const CATALOG = {
     "PACKING CUBES",
     "COMFORT WEAR",
     "TOILETRY BAGS",
+    "PASSPORT HOLDERS",
+    "TRAVEL PILLOWS",
+    "ELECTRONIC ACCESSORIES",
   ],
 } as const;
 

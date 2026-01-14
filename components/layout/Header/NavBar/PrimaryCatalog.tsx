@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import { SecondaryCatalog } from "./SecondaryCatalog";
 import { CatalogKey, CATALOG } from "./catalog.data";
 
 const ITEMS = Object.keys(CATALOG) as CatalogKey[];
 
-
+// PRIMARY CATALOG COMPONENT
 export function PrimaryCatalog() {
     const [active, setActive] = useState<CatalogKey | null>(null);
     const [isSecondaryOpen, setIsSecondaryOpen] = useState(false);
@@ -18,20 +19,20 @@ export function PrimaryCatalog() {
             return;
         }
 
-        // Закрываем текущий secondary
+        // Close secondary first
         setIsSecondaryOpen(false);
 
-        // После анимации — меняем категорию и открываем
+        // Open after a short delay to allow transition
         setTimeout(() => {
             setActive(item);
             setIsSecondaryOpen(true);
-        }, 200); // должно совпадать с duration
+        }, 300);
     };
 
     return (
         <>
             {/* ================= MOBILE ================= */}
-            <div className="md:hidden pt-10 px-6">
+            <div className="md:hidden pt-10 px-2">
                 <div className="relative overflow-x-auto">
                 <Swiper slidesPerView="auto" spaceBetween={20}>
                 {ITEMS.map((item) => (
@@ -71,7 +72,8 @@ export function PrimaryCatalog() {
                         onClick={() => handlePrimaryClick(item)}
                         className={`
                         text-lg font-light tracking-wide text-left
-                        transition-opacity cursor-pointer pt-6
+                        cursor-pointer pt-6 transition-transform
+                        hover:translate-x-1.5 ease-out duration-200
                         ${
                             active === item
                             ? "opacity-100"
