@@ -36,7 +36,7 @@
                     />
 
                     {/* LOGO */}
-                    <Link href="/" className="flex pl-2 w-[150px] md:w-[180px] h-auto text-black">
+                    <Link href="/" className="flex pl-2 w-37.5 md:w-45 h-auto text-black">
                         <Image
                             src="/logo/logo1.svg"
                             alt="PLUSH"
