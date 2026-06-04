@@ -16,16 +16,16 @@ export function NavBar() {
     
     return (
         <>
-            <div className="container mx-auto flex items-center justify-between font-light">
+            <div className="w-full max-w-8xl mx-auto px-4 sm:px-12 lg:px-12 pt-4 flex items-center justify-between font-light">
                 {/* BURGER BUTTON */}
                 <BurgerButton
                     open={open}
-                    onToggle={() => setOpen(v => !v)}
+                    onToggle={() => setOpen(!open)}
                 />
 
                 <SideMenu
                     open={open}
-                    onToggle={() => setOpen(v => !v)}
+                    onToggle={() => setOpen(!open)}
                     onClose={() => setOpen(false)}
                 />
 

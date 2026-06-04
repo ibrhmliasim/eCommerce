@@ -61,7 +61,7 @@ export function SideMenu({ open, onToggle, onClose }: SideMenuProps) {
                 </div>
 
                 {/* Catalog */}
-                <nav className="px-3 md:px-12 lg:px-38">
+                <nav className="px-3 md:px-16 lg:px-16">
                     <PrimaryCatalog />
                 </nav>
             </aside>

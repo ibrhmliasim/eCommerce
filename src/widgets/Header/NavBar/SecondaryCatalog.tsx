@@ -8,7 +8,7 @@ export function SecondaryCatalog({ items, isOpen, onToggle }: SecondaryCatalogPr
     return (
         <div
             className={`
-            overflow-auto pb-22 transition-all duration-300 ease-out
+            overflow-y-auto overflow-x-hidden pb-22 transition-all duration-300 ease-out
             ${isOpen ? "max-h-[70vh] opacity-100" : "max-h-0 opacity-0"}
             `}
         >

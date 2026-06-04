@@ -11,10 +11,7 @@ export function BurgerButton({ open, onToggle }: BurgerButtonProps) {
         <button
         onClick={onToggle}
         aria-label={open ? "Close menu" : "Open menu"}
-        className="
-            relative flex h-5 w-10 md:min-w-24 md:min-h-24 items-center justify-center
-            focus:outline-none cursor-pointer pointer-events-auto
-        "
+        className="relative flex h-5 w-10 md:min-w-24 md:min-h-24 items-center justify-centerfocus:outline-none cursor-pointer pointer-events-auto"
         >
         <span className="sr-only">
             {open ? "Close menu" : "Open menu"}

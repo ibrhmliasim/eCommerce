@@ -1,6 +1,5 @@
 // widgets/layout/Header/index.ts
 import { NavBar } from './NavBar';
-// import { AdvertisingBanner } from './AdvertisingBanner'; // Расскомментируешь в будущем
 
 export function Header() {
     return (
