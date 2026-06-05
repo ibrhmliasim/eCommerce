@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { SecondaryCatalog } from "./SecondaryCatalog";
-import { CatalogKey, CATALOG } from "./catalog.data";
+import { CatalogKey, CATALOG } from "../catalog.data";
 
 const ITEMS = Object.keys(CATALOG) as CatalogKey[];
 
