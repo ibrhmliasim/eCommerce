@@ -9,7 +9,7 @@ import { Search, ShoppingBag, User, HelpCircle } from "lucide-react";
 import { NavItem } from "./NavItem";
 import { BurgerButton } from "./BurgerButton";
 import { SideMenu } from "./SideMenu";
-import { SearchInput } from "./SearchInput";
+import { SearchInput } from "../../../features/search/SearchInput";
 
 export function NavBar() {
     const [open, setOpen] = useState(false);
