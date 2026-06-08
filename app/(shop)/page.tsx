@@ -1,7 +1,7 @@
 // *** Our e-commerce/components/pages/ will be here as our main pages in website which are called by layout.tsx as {children} ***
 
 // IMPORTS start
-import { AboutIntroSection } from "@/src/widgets/HomePage/AboutIntroSection";
+import { AboutIntroSection } from "@/widgets/HomePage/AboutIntroSection";
 // IMPORTS end 
 
 // EXPORTS start

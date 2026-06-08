@@ -1,7 +1,7 @@
 // /Users/asimibrahimli/e-commerce/app/layout.tsx
 
-import { Header } from "@/src/widgets/Header";
-import { Footer } from "@/src/widgets/Footer";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 
 import type { Metadata } from "next";
 
