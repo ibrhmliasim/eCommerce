@@ -6,7 +6,7 @@ import Link from "next/link";
 import { Search, ShoppingBag } from "lucide-react";
 
 import { BurgerButton } from "./BurgerButton";
-import { PrimaryCatalog } from "./PrimaryCatalog";
+import { PrimaryCatalog } from "../../../entities/category/ui/PrimaryCatalog";
 
 type SideMenuProps = {
     open: boolean;
