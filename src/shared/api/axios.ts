@@ -1,4 +1,5 @@
 // src/shared/api/axios.ts
+
 // This file sets up a custom Axios instance with interceptors to handle CSRF token management and global error handling for 401 and 419 status codes. 
 // It ensures that all API requests are made to the correct base URL and that CSRF tokens are fetched and included as needed.
 
@@ -35,7 +36,7 @@ const fetchCsrfCookie = (): Promise<void> => {
     return csrfCookieRequest;
 };
 
-// CSRF prefetch — при загрузке страницы, чтобы сразу получить куку и избежать 419 при первой мутации.
+// CSRF prefetch interceptor: For any mutation request (POST, PUT, PATCH, DELETE), we ensure that the CSRF cookie is fetched before the request is sent.
 api.interceptors.request.use(async (reqConfig) => {
     const method = reqConfig.method?.toUpperCase();
     const isMutation = method && !['GET', 'HEAD', 'OPTIONS'].includes(method);

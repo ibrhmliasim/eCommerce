@@ -1,7 +1,7 @@
 // src/features/auth/api/session.api.ts
 
-// This file defines the sessionApi object, which provides methods for handling user authentication-related API calls, 
-// such as logging in, fetching the current user's information, and logging out.
+// The session.api.ts file on the frontend does not solve or process anything. 
+// He simply knows the addresses (endpoints) and knows how to send data there.
 
 import { api } from '@/shared/api/axios';
 import { endpoints } from '@/shared/api/endpoints';
