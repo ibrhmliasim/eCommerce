@@ -36,3 +36,66 @@
 ## Одна фраза для интервью
 
 > "axios.ts — это security layer. Он обеспечивает cross-origin передачу session cookie, автоматически управляет CSRF токеном Sanctum включая retry при истечении, и централизует обработку auth ошибок не смешивая транспортный слой с роутингом приложения."
+
+---
+
+[LoginForm.tsx] 
+       │  (отправляет email/password)
+       ▼
+[useLoginMutation.ts] ──▶ Вызывает sessionApi.login({email, password})
+       │
+       ▼
+[session.api.ts] ───────▶ Дергает axios.post('/v1/auth/login')
+       │
+       ▼
+[shared/api/axios.ts] ──▶ [Interceptor] Проверяет куку XSRF-TOKEN. 
+                          Если её нет — сначала делает GET на /sanctum/csrf-cookie,
+                          а уже потом шлет POST на /login с куками.
+       │
+       ▼
+[public/index.php] ───────▶ Инициализация контейнера (Service Container) и HTTP-ядра
+       │
+       ▼
+[Http/Kernel.php] ────────▶ Прогон через стек мидлварей (Sanctum Stateful Middleware)
+       │                   ├── 1. EnsureFrontendRequestsAreStateful (Распознает твой Next.js)
+       │                   ├── 2. EncryptCookies & StartSession (Поднимает сессию из Redis/файлов)
+       │                   └── 3. VerifyCsrfToken (Сверяет X-XSRF-TOKEN из заголовка Axios)
+       │
+       ▼
+[routes/api.php] ─────────▶ Матчинг роута -> Route::post('/v1/auth/login', [AuthController::class, 'login'])
+       │
+       ▼
+[LoginRequest.php] ───────▶ Слой Валидации (FormRequest)
+       │                   ├── Провал -> 422 Unprocessable Entity (Axios ловит в onError)
+       │                   └── Успех  -> Данные идут дальше в контроллер
+       │
+       ▼
+[AuthController.php] ─────▶ Метод login(LoginRequest $request)
+       │                   └── Упаковка данных: LoginDTO::fromRequest($request)
+       │
+       ▼
+[LoginService.php] ───────▶ Бизнес-логика авторизации
+       │                   ├── Вызов фасада Auth::attempt($dto->toArray())
+       │                   └── Генерация сессионной куки (laravel_session) сервером
+       │
+       ▼
+[HTTP Response 200/204] ──▶ Laravel отправляет пустой успешный ответ + Set-Cookie заголовки
+       │
+       ▼  (Next.js получает успех и тут же шлет второй запрос: GET /v1/auth/me)
+       │
+[EnsureFrontendRequestsAreStateful] -> Снова магия Sanctum (привязывает запрос к сессии юзера)
+       │
+       ▼
+[auth:sanctum Middleware] ─▶ Мидлварь защиты эндпоинта (проверяет, авторизован ли ты)
+       │
+       ▼
+[AuthController@me] ──────▶ Метод me() возвращает: new UserResource(auth()->user())
+       │
+       ▼
+[UserResource.php] ───────▶ Слой трансформации (Вырезает лишнее, оставляет то, что ждет TS тип User)
+       │
+       ▼  (Возвращает 200 OK)
+[useLoginMutation] ─────▶ onSuccess() 
+                          ├── 1. fetchQuery(['auth', 'me']) -> Laravel отдает профиль
+                          ├── 2. setAuth(user) -> Пишем данные в Zustand [auth.store.ts]
+                          └── 3. router.push('/') -> Редирект на главную

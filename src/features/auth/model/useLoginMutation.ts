@@ -9,7 +9,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { sessionApi } from '@/features/auth/api/session.api';
 import { useAuthStore } from '@/features/auth/model/auth.store';
 
-import { User } from '@/entities/user/model/user.types';
+import { LoginPayload } from '@/features/auth/model/auth.types';
 
 export const useLoginMutation = () => {
     const router = useRouter();
@@ -18,9 +18,10 @@ export const useLoginMutation = () => {
 
     return useMutation({
         // Инициализируем функцию запроса из нашей коробки sessionApi
-        mutationFn: (data: User) => sessionApi.login(data),
+        mutationFn: (data: LoginPayload) => sessionApi.login(data),
         
         onSuccess: async () => {
+            queryClient.removeQueries({ queryKey: ['auth', 'me'] });
             // 1. Request the authenticated user's data from the backend (/v1/auth/me)
             // We invalidate the cache for ['auth', 'me'] to ensure useMeQuery fetches the latest data
             const user = await queryClient.ensureQueryData({

@@ -24,15 +24,12 @@ interface AuthState {
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
-    // Начальное состояние (Initial State) — при первой загрузке вкладки мы ничего не знаем о юзере
+    // Initial state of the auth store. By default, we assume that the user is not authenticated and we have not yet initialized the authentication state (e.g. by checking cookies on app load).
     user: null,
     isAuthenticated: false,
     isInitialized: false,
 
-    /**
-     * Записать пользователя в сессию фронтенда.
-     * Вызывается при успешном Login или когда роут /me подтвердил, что кука валидна.
-     */
+    // Setting session on the frontend. Called after successful login or when we check the session on app initialization (e.g. in _app.tsx).
     setAuth: (user) => 
         set({ 
             user, 
@@ -40,10 +37,7 @@ export const useAuthStore = create<AuthState>((set) => ({
             isInitialized: true 
         }),
 
-    /**
-     * Очистить сессию на фронтенде.
-     * Вызывается при Logout или если бэкенд вернул 401 Unauthorized (сессия протухла).
-     */
+    // Clearing session on the frontend. Called after logout or when we check the session on app initialization and find out that the user is not authenticated.    
     clearAuth: () => 
         set({ 
             user: null, 

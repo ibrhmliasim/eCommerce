@@ -8,10 +8,11 @@ import { endpoints } from '@/shared/api/endpoints';
 
 // Types
 import { User } from '@/entities/user/model/user.types';
+import { LoginPayload } from '@/features/auth/model/auth.types';
 
 export const sessionApi = {
     // login
-    login: async (data: User): Promise<void> => {
+    login: async (data: LoginPayload): Promise<void> => {
         await api.post(endpoints.auth.login, data);
     },
 
