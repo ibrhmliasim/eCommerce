@@ -1,5 +1,6 @@
 // /Users/asimibrahimli/e-commerce/app/layout.tsx
 
+import { AppProviders } from "@/shared/providers/AppProviders";
 import { Header } from "@/widgets/Header";
 import { Footer } from "@/widgets/Footer";
 
@@ -9,37 +10,39 @@ import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const hankenSans = Hanken_Grotesk({
-  variable: "--font-hanken-sans",
-  subsets: ["latin"],
+    variable: "--font-hanken-sans",
+    subsets: ["latin"],
 });
 
 const hankenMono = Hanken_Grotesk({
-  variable: "--font-hanken-mono",
-  subsets: ["latin"],
+    variable: "--font-hanken-mono",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Plush Wear",
-  description: "Created By ...",
+    title: "Plush Wear",
+    description: "Created By ...",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
+    return (
     <html lang="en">
-      <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
-        <Header />
+        <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
+            <AppProviders>
+                <Header />
 
-        {/* app/page.tsx */}
-        <main>
-          {children}
-        </main>
+                {/* app/page.tsx */}
+                <main>
+                    {children}
+                </main>
 
-        <Footer />
-      </body>
+                <Footer />
+            </AppProviders>
+        </body>
     </html>
-  );
+    );
 }

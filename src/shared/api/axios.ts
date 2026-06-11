@@ -12,7 +12,7 @@ interface CustomRequestConfig extends InternalAxiosRequestConfig {
 }
 
 export const api = axios.create({
-    baseURL: config.apiUrl,
+    baseURL: config.appUrl,
     withCredentials: true, // Important for CSRF cookie/session handling
     headers: {
         'Accept': 'application/json',
@@ -28,7 +28,7 @@ let csrfCookieRequest: Promise<void> | null = null;
 const fetchCsrfCookie = (): Promise<void> => {
     if (!csrfCookieRequest) { 
         csrfCookieRequest = axios
-            .get(`${config.apiUrl}/sanctum/csrf-cookie`, { withCredentials: true })
+            .get(`${config.appUrl}/sanctum/csrf-cookie`, { withCredentials: true })
             .then(() => { csrfCookieRequest = null; })
             .catch((err) => { csrfCookieRequest = null; throw err; });
     }

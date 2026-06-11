@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, ShoppingBag, User, HelpCircle } from "lucide-react";
@@ -9,10 +10,17 @@ import { Search, ShoppingBag, User, HelpCircle } from "lucide-react";
 import { NavItem } from "./NavItem";
 import { BurgerButton } from "./BurgerButton";
 import { SideMenu } from "./SideMenu";
-import { SearchInput } from "../../../features/search/SearchInput";
+import { SearchInput } from "@/features/search/SearchInput";
 
 export function NavBar() {
     const [open, setOpen] = useState(false);
+    const router = useRouter();
+
+    const handleProfileClick = () => {
+        // Здесь в будущем появится проверка: если авторизован -> router.push('/profile')
+        // А пока просто жестко отправляем на логин
+        router.push("/login");
+    };
     
     return (
         <>
@@ -55,9 +63,9 @@ export function NavBar() {
                         <Link href="/search" aria-label="Search">
                             <Search size={24} strokeWidth={1} />
                         </Link>
-                        <Link href="/login" aria-label="Account">
+                        <button onClick={handleProfileClick} aria-label="Account"className="text-black hover:opacity-70 transition-opacity">
                             <User size={24} strokeWidth={1} />
-                        </Link>
+                        </button>
                         <Link href="/help" aria-label="Help">
                             <HelpCircle size={24} strokeWidth={1} />
                         </Link>

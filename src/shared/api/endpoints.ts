@@ -3,7 +3,7 @@
 // Single route contract between Next.js and Laravel API.
 // If the backend changes the prefix or version, we edit it only here.
 
-const AUTH = '/v1/auth';
+const AUTH = '/auth';
 
 export const endpoints = {
     auth: {
