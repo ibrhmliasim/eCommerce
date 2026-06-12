@@ -1,6 +1,4 @@
-// /Users/asimibrahimli/e-commerce/app/layout.tsx
-
-import { AppProviders } from "@/shared/providers/AppProviders";
+// app/(auth)/layout.tsx
 
 import type { Metadata } from "next";
 

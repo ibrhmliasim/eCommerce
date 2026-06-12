@@ -1,6 +1,7 @@
-// /app/layout.tsx
+// /app/(main)/layout.tsx
 
-import { AppProviders } from "@/shared/providers/AppProviders";
+import { Header } from "@/widgets/Header";
+import { Footer } from "@/widgets/Footer";
 
 import type { Metadata } from "next";
 
@@ -21,18 +22,16 @@ export const metadata: Metadata = {
     description: "Created By ...",
 };
 
-export default function RootLayout({
+export default function MainLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-    <html lang="en">
-        <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
-            <AppProviders>
-                <main>{children}</main>
-            </AppProviders>
-        </body>
-    </html>
+        <>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+        </>
     );
 }
