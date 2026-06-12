@@ -23,6 +23,8 @@ export function NavBar() {
         // А пока просто жестко отправляем на логин
         router.push("/login");
     };
+
+    const cartCount = 0; // Здесь в будущем будет динамическое количество товаров в корзине
     
     return (
         <div className="w-full max-w-8xl mx-auto px-4 sm:px-12 lg:px-12 pt-4 flex items-center justify-between font-light">
@@ -76,6 +78,5 @@ export function NavBar() {
                     </nav>
                 </div>
             </div>
-        </>
     );
 }
