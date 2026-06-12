@@ -12,8 +12,9 @@ interface CustomRequestConfig extends InternalAxiosRequestConfig {
 }
 
 export const api = axios.create({
-    baseURL: config.appUrl,
+    baseURL: config.apiUrl,
     withCredentials: true, // Important for CSRF cookie/session handling
+    withXSRFToken: true, // Automatically include the CSRF token from the cookie in the headers
     headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -23,12 +24,13 @@ export const api = axios.create({
 
 // To prevent multiple simultaneous requests(for example like and add to cart) from triggering multiple CSRF cookie fetches, we track the ongoing request.
 let csrfCookieRequest: Promise<void> | null = null;
+const apiUrl = config.apiUrl.replace('/api/v1', ''); // Remove the /api/v1 prefix to get the base URL for the CSRF cookie endpoint
 
 // Function to fetch the CSRF cookie. If there's no active request, create a new one, otherwise return the existing one.
 const fetchCsrfCookie = (): Promise<void> => {
     if (!csrfCookieRequest) { 
         csrfCookieRequest = axios
-            .get(`${config.appUrl}/sanctum/csrf-cookie`, { withCredentials: true })
+            .get(`${apiUrl}/sanctum/csrf-cookie`, { withCredentials: true })
             .then(() => { csrfCookieRequest = null; })
             .catch((err) => { csrfCookieRequest = null; throw err; });
     }
