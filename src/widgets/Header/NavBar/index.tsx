@@ -1,6 +1,9 @@
+// @/widgets/Header/NavBar/index.tsx
+
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, ShoppingBag, User, HelpCircle } from "lucide-react";
@@ -9,10 +12,18 @@ import { Search, ShoppingBag, User, HelpCircle } from "lucide-react";
 import { NavItem } from "./NavItem";
 import { BurgerButton } from "./BurgerButton";
 import { SideMenu } from "./SideMenu";
-import { SearchInput } from "../../../features/search/SearchInput";
+import { SearchInput } from "@/features/search/SearchInput";
 
 export function NavBar() {
     const [open, setOpen] = useState(false);
+    const router = useRouter();
+
+    const handleProfileClick = () => {
+        // Здесь в будущем появится проверка: если авторизован -> router.push('/profile')
+        // А пока просто жестко отправляем на логин
+        router.push("/login");
+    };
+    const cartCount = 0;
     
     return (
         <>
@@ -43,11 +54,11 @@ export function NavBar() {
                 {/* NAVIGATION SECTION */}
                 <div className="ml-auto flex items-center justify-between gap-6">
                     {/* DESKTOP NAV */}
-                    <nav className="hidden lg:flex md:text-xs gap-7">
+                    <nav className="hidden lg:flex md:text-xs font-normal gap-7">
                         <SearchInput />
                         <NavItem href="/login" label="LOG IN" />
                         <NavItem href="/help" label="HELP" />
-                        <NavItem href="/cart" label="SHOPPING BAG [0]" />
+                        <NavItem href="/cart" label={`SHOPPING BAG 「 ${cartCount} 」`} />
                     </nav>
 
                     {/* MOBILE ICONS */}
@@ -55,9 +66,9 @@ export function NavBar() {
                         <Link href="/search" aria-label="Search">
                             <Search size={24} strokeWidth={1} />
                         </Link>
-                        <Link href="/login" aria-label="Account">
+                        <button onClick={handleProfileClick} aria-label="Account"className="text-black hover:opacity-70 transition-opacity">
                             <User size={24} strokeWidth={1} />
-                        </Link>
+                        </button>
                         <Link href="/help" aria-label="Help">
                             <HelpCircle size={24} strokeWidth={1} />
                         </Link>
