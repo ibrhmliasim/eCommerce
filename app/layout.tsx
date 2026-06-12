@@ -1,6 +1,7 @@
 // /app/layout.tsx
 
 import { AppProviders } from "@/shared/providers/AppProviders";
+import './globals.css';
 
 import type { Metadata } from "next";
 
