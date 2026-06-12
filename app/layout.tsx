@@ -1,12 +1,10 @@
-// /Users/asimibrahimli/e-commerce/app/layout.tsx
+// /app/layout.tsx
 
-import { Header } from "@/widgets/Header";
-import { Footer } from "@/widgets/Footer";
+import { AppProviders } from "@/shared/providers/AppProviders";
 
 import type { Metadata } from "next";
 
 import { Hanken_Grotesk } from "next/font/google";
-import "./globals.css";
 
 const hankenSans = Hanken_Grotesk({
   variable: "--font-hanken-sans",
@@ -30,16 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
-        <Header />
-
-        {/* app/page.tsx */}
-        <main>
-          {children}
-        </main>
-
-        <Footer />
-      </body>
+        <body className={`${hankenSans.variable} ${hankenMono.variable} antialiased font-light`}>
+            <AppProviders>
+                <main>{children}</main>
+            </AppProviders>
+        </body>
     </html>
   );
 }
