@@ -13,10 +13,7 @@ export const LoginForm = () => {
     const { mutate, isPending, error } = useLoginMutation();
 
     return (
-        <form 
-            onSubmit={handleSubmit((data: LoginPayload) => mutate(data))}
-            className="flex flex-col space-y-8"
-        >
+        <form onSubmit={handleSubmit((data: LoginPayload) => mutate(data))} className="flex flex-col space-y-8">
             {/* EMAIL INPUT */}
             <div className="relative z-0 w-full group">
                 <input 
@@ -44,7 +41,7 @@ export const LoginForm = () => {
             {/* FORGOT PASSWORD LINK */}
             <div className="flex justify-end">
                 <Link href="/forgot-password" 
-                    className="text-[12px] text-neutral-900 hover:text-black underline underline-offset-4 tracking-wider uppercase transition-colors">
+                    className="text-[12px] text-neutral-900 hover:text-black hover:underline tracking-wider uppercase transition-colors">
 
                     Forgot password?
                 </Link>
