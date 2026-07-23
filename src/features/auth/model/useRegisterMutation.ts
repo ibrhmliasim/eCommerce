@@ -13,19 +13,19 @@ import { queryKeys } from '@/shared/api/queryKeys';
 import { RegisterPayload } from '@/features/auth/model/auth.types';
 
 export const useRegisterMutation = () => {
-  const router = useRouter();
-  const queryClient = useQueryClient();
+    const router = useRouter();
+    const queryClient = useQueryClient();
 
-  return useMutation({
-    mutationFn: (data: RegisterPayload) => sessionApi.register(data),
+    return useMutation({
+        mutationFn: (data: RegisterPayload) => sessionApi.register(data),
 
-    onSuccess: async () => {
-      await queryClient.invalidateQueries({ queryKey: queryKeys.user.all });
-      router.replace('/');
-    },
+        onSuccess: async () => {
+            await queryClient.invalidateQueries({ queryKey: queryKeys.user.all });
+            router.replace('/');
+        },
 
-    onError: (error: Error) => {
-      console.error('Register Error:', error);
-    },
-  });
+        onError: (error: Error) => {
+            console.error('Register Error:', error);
+        },
+    });
 };

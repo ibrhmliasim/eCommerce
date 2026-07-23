@@ -82,7 +82,7 @@ export default function LoginPage() {
             {/* RIGHT SIDE: INTERIOR / FASHION BANNER (Hidden on mobile phones hidden, visible from lg:flex) */}
             <div className="hidden lg:flex lg:w-2/3 h-full relative bg-neutral-50">
                 <Image
-                    src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200"
+                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200"
                     alt="Plush Brand Campaign"
                     fill
                     className="object-cover"
