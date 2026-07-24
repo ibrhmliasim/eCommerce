@@ -21,7 +21,7 @@ export const useRegisterMutation = () => {
 
         onSuccess: async () => {
             await queryClient.invalidateQueries({ queryKey: queryKeys.user.all });
-            router.replace('/');
+            router.replace('/register/success');
         },
 
         onError: (error: Error) => {

@@ -10,7 +10,7 @@ export default function LoginPage() {
         <div className="h-screen w-full flex bg-white overflow-hidden">
             
             {/* LEFT PART: LOGO + FORMS (Takes up 100% on mobile and exactly half on desktop) */}
-            <div className="w-full lg:w-1/3 h-full flex flex-col gap-2 md:gap-2 p-6 md:p-6 lg:p-8 overflow-y-auto">
+            <div className="w-full lg:w-1/2 h-full flex flex-col justify-between p-6 md:p-12 lg:p-16 overflow-y-auto">
                 
                 {/* LOGO */}
                 <header className="w-full">
@@ -26,7 +26,7 @@ export default function LoginPage() {
                 </header>
 
                 {/* MIDDLE BLOCK */}
-                <main className="max-w-lg px-3 sm:px-3 py-4 space-y-12">
+                <main className="w-full max-w-md mx-auto my-auto py-8 space-y-8">
                     
                     <div className="space-y-2">
                         <h1 className="text-xl font-normal tracking-widest uppercase text-black">
@@ -42,17 +42,17 @@ export default function LoginPage() {
                     {/* SOCIAL SIGN IN */}
                     <div className="space-y-4 pt-4 max-w-lg">
                         <p className="text-[12px] text-neutral-800 uppercase tracking-widest">
-                            Or Access With
+                            Or Login With
                         </p>
                         {/* flex-wrap allows buttons to wrap nicely on the next line on small screens */}
                         <div className="flex flex-wrap gap-3">
-                            <button className="bg-white text-black cursor-pointer border border-neutral-400 text-[11px] py-2 px-4 uppercase hover:border-black tracking-wider font-normal transition-colors duration-300">
+                            <button className="py-2 px-4 cursor-pointer border border-black text-black text-[11px] uppercase tracking-widest font-normal hover:bg-black hover:text-white transition-all duration-300">
                                 Google
                             </button>
-                            <button className="bg-white text-black cursor-pointer border border-neutral-400 text-[11px] py-2 px-4 uppercase hover:border-black tracking-wider font-normal transition-colors duration-300">
+                            <button className="py-2 px-4 cursor-pointer border border-black text-black text-[11px] uppercase tracking-widest font-normal hover:bg-black hover:text-white transition-all duration-300">
                                 Facebook
                             </button>
-                            <button className="bg-white text-black cursor-pointer border border-neutral-400 text-[11px] py-2 px-4 uppercase hover:border-black tracking-wider font-normal transition-colors duration-300">
+                            <button className="py-2 px-4 cursor-pointer border border-black text-black text-[11px] uppercase tracking-widest font-normal hover:bg-black hover:text-white transition-all duration-300">
                                 QR Code
                             </button>
                         </div>
@@ -60,7 +60,7 @@ export default function LoginPage() {
                 </main>
 
                 {/* REGISTER PROMO */}
-                <footer className="max-w-lg pt-10 pl-3 sm:pl-3 border-t border-neutral-100 ">
+                <footer className="w-full max-w-md mx-auto border-t border-neutral-100 pt-6">
                     <div className="space-y-4">
                         <h2 className="text-xs font-medium tracking-widest uppercase text-black">
                             New Here?
@@ -80,16 +80,16 @@ export default function LoginPage() {
             </div>
 
             {/* RIGHT SIDE: INTERIOR / FASHION BANNER (Hidden on mobile phones hidden, visible from lg:flex) */}
-            <div className="hidden lg:flex lg:w-2/3 h-full relative bg-neutral-50">
+            <div className="hidden lg:flex lg:w-1/2 h-full relative bg-neutral-100">
                 <Image
-                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200"
-                    alt="Plush Brand Campaign"
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1200&auto=format&fit=crop"
+                    alt="Plush Brand Register Campaign"
                     fill
                     className="object-cover"
-                    sizes="100vw"
+                    sizes="50vw"
                     priority
                 />
-                <div className="absolute inset-0 bg-black/5 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/2 pointer-events-none" />
             </div>
 
         </div>

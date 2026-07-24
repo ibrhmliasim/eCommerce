@@ -10,7 +10,7 @@ export default function RegisterPage() {
             
             {/* ЛЕВАЯ ЧАСТЬ: ЛОГОТИП + ФОРМЫ */}
             <div className="w-full lg:w-1/2 h-full flex flex-col justify-between p-6 md:p-12 lg:p-16 overflow-y-auto">
-                
+
                 {/* 1. LOGO */}
                 <header className="w-full">
                     <Link href="/" className="inline-block text-black">
@@ -40,6 +40,22 @@ export default function RegisterPage() {
                     {/* FORM */}
                     <RegisterForm />
 
+                    {/* SOCIAL Register */}
+                    <div className="space-y-4 pt-4 max-w-lg">
+                        <p className="text-[12px] text-neutral-800 uppercase tracking-widest">
+                            Or Register With
+                        </p>
+                        {/* flex-wrap allows buttons to wrap nicely on the next line on small screens */}
+                        <div className="flex flex-wrap gap-3">
+                            <button className="py-2 px-4 cursor-pointer border border-black text-black text-[11px] uppercase tracking-widest font-normal hover:bg-black hover:text-white transition-all duration-300">
+                                Google
+                            </button>
+                            <button className="py-2 px-4 cursor-pointer border border-black text-black text-[11px] uppercase tracking-widest font-normal hover:bg-black hover:text-white transition-all duration-300">
+                                Facebook
+                            </button>
+                        </div>
+                    </div>
+
                 </main>
 
                 {/* 3. ALREADY HAVE AN ACCOUNT PROMO */}
@@ -62,7 +78,7 @@ export default function RegisterPage() {
 
             </div>
 
-            {/* ПРАВАЯ ЧАСТЬ: ИНТЕРЬЕРНЫЙ / ФЭШН БАННЕР */}
+            {/* RIGHT SIDE: INTERIOR / FASHION BANNER (Hidden on mobile phones hidden, visible from lg:flex) */}
             <div className="hidden lg:flex lg:w-1/2 h-full relative bg-neutral-100">
                 <Image
                     src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1200&auto=format&fit=crop"
@@ -72,7 +88,7 @@ export default function RegisterPage() {
                     sizes="50vw"
                     priority
                 />
-                <div className="absolute inset-0 bg-black/[0.02] pointer-events-none" />
+                <div className="absolute inset-0 bg-black/2 pointer-events-none" />
             </div>
 
         </div>

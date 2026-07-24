@@ -26,7 +26,7 @@ export default function AuthLayout({
     children: React.ReactNode;
 }) {
     return (
-        <main className={`${hankenSans.variable} ${hankenMono.variable} min-h-screen flex items-center antialiased font-light`}>
+        <main className={`${hankenSans.variable} ${hankenMono.variable} min-h-screen flex items-center justify-center antialiased font-light`}>
             {children}
         </main>
     );

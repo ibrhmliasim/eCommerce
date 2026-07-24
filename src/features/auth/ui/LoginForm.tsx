@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useLoginMutation } from '@/features/auth/model/useLoginMutation';
 import { getErrorMessage } from '@/shared/lib/errorHandler';
 import { LoginPayload } from '@/features/auth/model/auth.types';
+import { PasswordInput } from './PasswordInput';
 
 export const LoginForm = () => {
     const { register, handleSubmit } = useForm<LoginPayload>();
@@ -29,14 +30,7 @@ export const LoginForm = () => {
             </div>
 
             {/* PASSWORD INPUT */}
-            <div className="relative z-0 w-full group">
-                <input {...register('password')} type="password" required placeholder=" " 
-                    className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b border-neutral-700 appearance-none focus:outline-none focus:ring-0 focus:border-black peer transition-colors duration-300"
-                />
-                <label className="peer-focus:font-normal absolute text-xs text-neutral-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-left peer-focus:left-0 peer-focus:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-wider">
-                    PASSWORD
-                </label>
-            </div>
+            <PasswordInput registration={register('password')} label="PASSWORD" />
 
             {/* FORGOT PASSWORD LINK */}
             <div className="flex justify-end">
