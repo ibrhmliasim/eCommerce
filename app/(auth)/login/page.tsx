@@ -10,7 +10,7 @@ export default function LoginPage() {
         <div className="h-screen w-full flex bg-white overflow-hidden">
             
             {/* LEFT PART: LOGO + FORMS (Takes up 100% on mobile and exactly half on desktop) */}
-            <div className="w-full lg:w-1/2 h-full flex flex-col justify-between p-6 md:p-12 lg:p-16 overflow-y-auto">
+            <div className="w-full lg:w-1/2 h-full flex flex-col justify-between p-6 md:p-12 lg:p-12 overflow-y-auto">
                 
                 {/* LOGO */}
                 <header className="w-full">

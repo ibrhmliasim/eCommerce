@@ -70,7 +70,7 @@ export const RegisterForm = () => {
 
             {/* ERROR HANDLING */}
             {error && (
-                <div className="text-xs text-red-600 tracking-wide bg-red-50 p-3 border border-red-200 uppercase text-center">
+                <div className="text-sm font-normal text-red-600 tracking-wide bg-red-50 p-3 border border-red-200 uppercase text-center">
                     {getErrorMessage(error)}
                 </div>
             )}

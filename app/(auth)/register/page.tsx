@@ -9,7 +9,7 @@ export default function RegisterPage() {
         <div className="h-screen w-full flex bg-white overflow-hidden">
             
             {/* ЛЕВАЯ ЧАСТЬ: ЛОГОТИП + ФОРМЫ */}
-            <div className="w-full lg:w-1/2 h-full flex flex-col justify-between p-6 md:p-12 lg:p-16 overflow-y-auto">
+            <div className="w-full lg:w-1/2 h-full flex flex-col justify-between p-6 md:p-12 lg:p-12 overflow-y-auto">
 
                 {/* 1. LOGO */}
                 <header className="w-full">
